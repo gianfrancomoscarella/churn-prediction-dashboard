@@ -110,7 +110,7 @@ El script `evaluate.py` genera:
 
 **3. Ejecutar la aplicación**
 
-streamlit run app.py
+python -m streamlit run app/app.py   
 
 # ⚠️ Limitaciones
 
