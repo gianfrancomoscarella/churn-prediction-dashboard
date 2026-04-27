@@ -1,40 +1,125 @@
-📊 Customer Churn Prediction
+# 📊 Dashboard de Predicción de Churn
 
-Proyecto de análisis de datos y Machine Learning enfocado en la predicción de abandono de clientes (churn).
+Aplicación interactiva para predecir la fuga de clientes y estimar el impacto económico usando Machine Learning.
 
-🚀 Objetivo
+# 🚀 Descripción general
 
-Desarrollar un modelo capaz de identificar clientes con alta probabilidad de abandono, utilizando variables como tipo de contrato, antigüedad y costo mensual.
+Este proyecto simula un escenario empresarial real donde una compañía necesita identificar clientes en riesgo de abandonar el servicio (churn) y tomar acciones proactivas.
 
-🧠 Enfoque técnico
-Limpieza y preprocesamiento de datos con Pandas
-Transformación de variables categóricas mediante One-Hot Encoding
-Entrenamiento de modelo de clasificación (Regresión Logística)
-Evaluación con métricas:
-Accuracy
-Precision / Recall
-Confusion Matrix
-📈 Resultados
+El sistema combina:
+- Un modelo de Machine Learning (Regresión Logística)
+- Un dashboard orientado al negocio (Streamlit)
+- Estimación del impacto económico para la toma de decisiones
 
-El modelo logra predecir correctamente patrones de abandono, identificando variables relevantes como:
+# 🎯 Objetivos
 
-Tipo de contrato
-Antigüedad del cliente
-Costo mensual
-🖥️ Aplicación
+- Predecir la probabilidad de fuga de cada cliente
+- Clasificar clientes según su nivel de riesgo (Bajo / Medio / Alto)
+- Estimar la pérdida potencial de ingresos
+- Brindar recomendaciones accionables para el negocio
 
-Se desarrolló una aplicación interactiva con Streamlit que permite:
+# 🧠 Modelo
 
-Ingresar datos de un cliente
-Obtener predicción en tiempo real
-Visualizar probabilidad de churn
-⚠️ Limitaciones
-El modelo utiliza un subconjunto simplificado de variables
-No se realizó optimización avanzada de hiperparámetros
-En un entorno productivo se integraría con datos reales en tiempo real
-🛠️ Tecnologías
-Python
-Pandas
-Scikit-learn
-Streamlit
-Joblib
+- **Algoritmo:** Regresión Logística
+- **Variable objetivo:** Churn (Sí / No)
+- **Salida:** Probabilidad de fuga
+
+**Variables utilizadas:**
+
+- Antigüedad del cliente
+- Cargo mensual
+- Tipo de contrato
+- Servicio de internet
+- Método de pago
+- Seguridad en línea
+- Soporte técnico
+- Facturación sin papel
+
+# 💡 Lógica de negocio
+
+Los clientes se clasifican en niveles de riesgo según su probabilidad de churn:
+
+| Nivel de riesgo | Probabilidad | Estado |
+|---|---|---|
+| 🟢 Bajo | 0% – 30% | Estable |
+| 🟡 Medio | 31% – 59% | En revisión |
+| 🔴 Alto | 60% – 100% | Acción inmediata |
+
+
+# 💰 Estimación del impacto económico
+
+La aplicación estima la pérdida potencial de ingresos por cliente:
+Impacto = Cargo mensual × Meses esperados × Probabilidad de churn
+Los meses esperados se determinan según el tipo de contrato:
+
+- **Mes a mes** → 3 meses
+- **Contratos a largo plazo** → 12 meses
+
+# 🖥️ Funcionalidades
+
+- Simulación interactiva de clientes
+- Predicción de churn en tiempo real
+- Visualización de riesgo (sistema semáforo)
+- Estimación del impacto económico
+- Recomendaciones accionables para el negocio
+- Explicabilidad del modelo (factores clave de fuga)
+
+# 🛠️ Tecnologías utilizadas
+
+![Python]
+![Pandas]
+![Scikit-learn]
+![Streamlit]
+![Joblib]
+
+# 📂 Estructura del proyecto
+
+├── app/
+│   └── app.py               # Dashboard en Streamlit
+├── train.py              # Entrenamiento del modelo
+├── evaluate.py           # Evaluación del modelo
+├── requirements.txt
+│
+├── data/
+│   └── customers.csv
+│
+├── models/
+│   ├── (se crearan una vez entrenado el modelo)
+└── src/
+    ├── preprocess.py
+    └── __init__.py
+
+# ⚙️ Instalación
+
+git clone https://github.com/gianfrancomoscarella/churn-prediction-dashboard.git
+cd churn-prediction-dashboard
+pip install -r requirements.txt
+
+# ▶️ Uso
+
+**1. Entrenar el modelo**
+
+python train.py
+
+**2. Evaluar el modelo**
+
+El script `evaluate.py` genera:
+- Accuracy
+- ROC AUC Score
+- Matriz de confusión
+
+**3. Ejecutar la aplicación**
+
+streamlit run app.py
+
+# ⚠️ Limitaciones
+
+- Utiliza un dataset público (no datos reales de una empresa)
+- No considera factores externos (condiciones de mercado, competencia)
+- Las predicciones son probabilísticas, no determinísticas
+
+# 👤 Autor
+
+**Gianfranco Moscarella**  
+ 
+[LinkedIn](https://linkedin.com/in/gianfranco-moscarella)
